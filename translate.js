@@ -18,7 +18,6 @@ function translate(text) {
 
 function translateMorse(text) {
     var out = "";
-    // if morse is passed in
     for (character of text) {
         out += morse(character);
     }
@@ -28,7 +27,6 @@ function translateMorse(text) {
 
 function translateText(text) {
     var out = "";
-    // if morse is passed in
     for (character of text) {
         out += alpha(character) + " ";
     }
@@ -36,7 +34,6 @@ function translateText(text) {
     return out.slice(0, -1);
 }
 
-// will need to change to fix working with morse code (multiple char's for single letter)
 function morse(str) {
     switch (str) {
         case ".-":
