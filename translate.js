@@ -12,10 +12,6 @@ function translate(text) {
 // returns the morse code
 function translateNow(char) {}
 
-// translate to english
-// returns english
-function translateNow(char) {}
-
 // test english -> morse
 console.log(translate("Test") === "- . ... -");
 // test morse -> english
