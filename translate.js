@@ -2,42 +2,6 @@
 
 // this will take the input to pass to translator
 // returns the translated text
-function translate(text) {
-  var text = text.toLowerCase();
-
-  if (text.charAt(0) === '-' || text.charAt(0) === '.') {
-    text = translateMorse(text.split(" "));
-  }
-  //else assuming its alphabet
-  else {
-    text = translateText(text.split(""));
-  }
-
-  return text;
-}
-
-function translateMorse(text) {
-  var out = "";
-  text.forEach(character => {
-    out += getKeyByValue(dictionary, morse(character));
-  });
-
-  return out;
-}
-
-function translateText(text) {
-  var out = "";
-  text.forEach(character => {
-    out += dictionary[character] + " ";
-  });
-
-  return out.slice(0, -1);
-}
-
-function getKeyByValue(object, value) {
-  return Object.keys(object).find(key => object[key] === value);
-}
-
 var dictionary = {
   a: ".-",
   b: "-...",
@@ -64,7 +28,46 @@ var dictionary = {
   w: ".--",
   x: "-..-",
   y: "-.--",
-  z: "--.."
+  z: "--..",
+  " ": "/"
+}
+
+function translate(text) {
+  var text = text.toLowerCase();
+
+  if (text.charAt(0) === '-' || text.charAt(0) === '.') {
+    text = translateMorse(text.split(" "));
+  }
+  //else assuming its alphabet
+  else {
+    text = translateText(text.split(""));
+  }
+
+  return text;
+}
+
+function translateMorse(text) {
+  var out = "";
+  text.forEach(character => {
+    out += getKeyByValue(dictionary, character);
+  });
+
+  console.log(out);
+  return out;
+}
+
+function translateText(text) {
+  var out = "";
+  text.forEach(character => {
+    out += dictionary[character] + " ";
+  });
+
+  console.log(out.slice(0, -1));
+  return out.slice(0, -1);
+}
+
+function getKeyByValue(object, value) {
+  return Object.keys(object).find(key => object[key] === value);
 }
 
 // test english -> morse
