@@ -64,13 +64,15 @@ function translateText(text) {
   return out.slice(0, -1);
 }
 
+// creates array of keys in object, then loops through each key in object to find and match with value
+// for reverse lookup
 function getKeyByValue(object, value) {
   return Object.keys(object).find(key => object[key] === value);
 }
 
 // test english -> morse
-console.log("Test === - . ... - ?", translate("Test") === "- . ... -");
-console.log("Test test === - . ... - / - . ... - ?", translate("Test test") === "- . ... - / - . ... -");
+console.log(translate("Test"), " === - . ... - ?", translate("Test") === "- . ... -");
+console.log(translate("Test test"), " === - . ... - / - . ... - ?", translate("Test test") === "- . ... - / - . ... -");
 // test morse -> english
-console.log("... --- ... === sos ?", translate("... --- ...") === 'sos');
-console.log("... --- ... / ... --- ... === sos sos ?", translate("... --- ... / ... --- ...") === 'sos sos');
+console.log(translate("... --- ..."), " === sos ?", translate("... --- ...") === 'sos');
+console.log(translate("... --- ... / ... --- ..."), " === sos sos ?", translate("... --- ... / ... --- ...") === 'sos sos');
