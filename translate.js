@@ -18,18 +18,18 @@ function translate(text) {
 
 function translateMorse(text) {
   var out = "";
-  for (character of text) {
+  text.forEach(character => {
     out += morse(character);
-  }
+  });
 
   return out;
 }
 
 function translateText(text) {
   var out = "";
-  for (character of text) {
+  text.forEach(character => {
     out += alpha(character) + " ";
-  }
+  });
 
   return out.slice(0, -1);
 }
