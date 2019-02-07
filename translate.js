@@ -52,7 +52,6 @@ function translateMorse(text) {
     out += getKeyByValue(dictionary, character);
   });
 
-  console.log(out);
   return out;
 }
 
@@ -62,7 +61,6 @@ function translateText(text) {
     out += dictionary[character] + " ";
   });
 
-  console.log(out.slice(0, -1));
   return out.slice(0, -1);
 }
 
@@ -71,8 +69,8 @@ function getKeyByValue(object, value) {
 }
 
 // test english -> morse
-console.log(translate("Test") === "- . ... -");
-console.log(translate("Test test") === "- . ... - / - . ... -");
+console.log("Test === - . ... - ?", translate("Test") === "- . ... -");
+console.log("Test test === - . ... - / - . ... - ?", translate("Test test") === "- . ... - / - . ... -");
 // test morse -> english
-console.log(translate("... --- ...") === 'sos');
-console.log(translate("... --- ... / ... --- ...") === 'sos sos');
+console.log("... --- ... === sos ?", translate("... --- ...") === 'sos');
+console.log("... --- ... / ... --- ... === sos sos ?", translate("... --- ... / ... --- ...") === 'sos sos');
