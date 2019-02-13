@@ -35,15 +35,7 @@ var dictionary = {
 function translate(text) {
   var text = text.toLowerCase();
 
-  if (text.charAt(0) === '-' || text.charAt(0) === '.') {
-    text = translateMorse(text.split(" "));
-  }
-  //else assuming its alphabet
-  else {
-    text = translateText(text.split(""));
-  }
-
-  return text;
+  return (text.charAt(0) === '-' || text.charAt(0) === '.') ? translateMorse(text.split(" ")) : translateText(text.split(""));
 }
 
 function translateMorse(text) {
